@@ -21,9 +21,11 @@ Route::get('/', function () {
 
 Route::post('login', [AuthController::class, 'auth']);
 Route::post('register', [AuthController::class, 'register']);
+Route::post('verification', [AuthController::class, 'verification']);
 Route::get('login', [AuthController::class, 'login']);
 Route::get('register', [AuthController::class, 'registerForm']);
 Route::get('dashboard', [ProductController::class, 'index']);
 Route::get('logout', [AuthController::class, 'logout']);
+Route::get('verification/{id}', [AuthController::class, 'verificationForm']);
 
 

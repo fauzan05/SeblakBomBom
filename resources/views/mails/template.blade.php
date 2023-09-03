@@ -1,0 +1,1 @@
+Berikut kode verifikasi anda : {{ $code }}

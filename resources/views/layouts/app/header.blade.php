@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md sticky-top" data-bs-theme="dark" style="background-color: red;">
+<nav class="navbar navbar-expand-md bg-danger sticky-top">
     <div class="container">
         <a class="navbar-brand d-md-none" href="#">
             Seblak BomBom

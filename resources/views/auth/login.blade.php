@@ -2,6 +2,7 @@
 
 @section('title', 'Login')
 
+
 @section('content')
 <div class="container">
     <div class="row justify-content-center align-items-center" style="height: 70vh;">
@@ -10,6 +11,10 @@
             @if(session()->has('error_message'))
             <div class="alert alert-danger">
                 {{ session()->get('error_message') }}
+            </div>
+            @elseif(session()->has('message'))
+            <div class="alert alert-success">
+                {{ session()->get('message') }}
             </div>
             @endif
             <form method="post" action="{{ url('login') }}">
