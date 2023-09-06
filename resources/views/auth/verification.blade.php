@@ -16,8 +16,11 @@
             <form method="post" action="{{ url('verification') }}">
                 @csrf
                 <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label">Masukkan kode verifikasi yang dikirimkan ke email : {{ $verification_id }}</label>
-                    <input type="hidden" name="emailVerification" value=" {{ $verification_id }}">
+                    <label for="exampleInputEmail1" class="form-label">Masukkan kode verifikasi yang dikirimkan ke email : {{ $register_id }}</label>
+                    <input type="hidden" name="emailVerification" value=" {{ $register_id }}">
+                    @if($errors->has('codeVerification'))
+                    <span class="text-danger">{{ $errors->first('codeVerification') }}</span>
+                    @endif
                     <input type="text" name="codeVerification" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                 </div>
                 <button type="submit" class="btn btn-primary" style="width: 100%;">Verifikasi</button>

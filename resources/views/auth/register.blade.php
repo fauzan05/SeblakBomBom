@@ -20,7 +20,7 @@
                     <input type="text" name="name" class="form-control" id="exampleInputEmail1">
                 </div>
                 @if($errors->has('name'))
-                <span class="text-danger">{{ $errors->get('name') }}</span>
+                <span class="text-danger">{{ $errors->first('name') }}</span>
                 @endif
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Email</label>

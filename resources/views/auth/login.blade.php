@@ -4,7 +4,7 @@
 
 
 @section('content')
-<div class="container">
+<div class="container m-5">
     <div class="row justify-content-center align-items-center" style="height: 70vh;">
         <div class="col-lg-5">
             <h1 class="text-center">Login Page</h1>
@@ -23,11 +23,17 @@
                     <label for="exampleInputEmail1" class="form-label">Email</label>
                     <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                 </div>
-                <div class="mb-5">
+                @if($errors->has('email'))
+                <span class="text-danger">{{ $errors->first('email') }}</span>
+                @endif
+                <div class="mb-3">
                     <label for="exampleInputPassword1" class="form-label">Password</label>
                     <input type="password" name="password" class="form-control" id="exampleInputPassword1">
                 </div>
-                <button type="submit" class="btn btn-primary" style="width: 100%;">Masuk</button>
+                @if($errors->has('password'))
+                <span class="text-danger">{{ $errors->first('password') }}</span>
+                @endif
+                <button type="submit" class="btn btn-primary mt-5" style="width: 100%;">Masuk</button>
             </form>
             <div class="col-lg-10 text-center m-5">
                 <p>Belum punya akun?</p>

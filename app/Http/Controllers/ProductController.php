@@ -8,14 +8,15 @@ use Illuminate\Support\Facades\Auth;
 
 class ProductController extends Controller
 {
-    public Auth $auth;
 
     public function index()
     {
         if (!Auth::check()) {
             return view('product/index');
         }
-        $user = $this->auth->user();
-        return view('product/index', $user);
+        $data = [
+            'name' => Auth::user()->name
+        ];
+        return view('product/index', $data);
     }
 }

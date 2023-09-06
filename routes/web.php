@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ProductController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,17 +16,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
 
 Route::post('login', [AuthController::class, 'auth']);
 Route::post('register', [AuthController::class, 'register']);
 Route::post('verification', [AuthController::class, 'verification']);
+Route::get('/', [ProductController::class, 'index']);
 Route::get('login', [AuthController::class, 'login']);
 Route::get('register', [AuthController::class, 'registerForm']);
-Route::get('dashboard', [ProductController::class, 'index']);
 Route::get('logout', [AuthController::class, 'logout']);
+Route::get('verification/{id}/confirm_verification/{code}', [AuthController::class, 'otherVerification']);
 Route::get('verification/{id}', [AuthController::class, 'verificationForm']);
-
+Route::get('password-changes', [AuthController::class, 'passwordChanges']);
 

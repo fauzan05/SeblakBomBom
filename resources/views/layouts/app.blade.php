@@ -9,10 +9,9 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
     <title>@yield('title')</title>
 </head>
-<body>
+<body style="background-color: #F6F6F5;">
     @include('layouts.app.header')
     @yield('content')
     @include('layouts.app.footer')
-    
 </body>
 </html>

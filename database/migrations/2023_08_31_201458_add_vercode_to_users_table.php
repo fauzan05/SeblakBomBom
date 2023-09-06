@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->string('verification_code')->after('password')->default(null);
-            $table->string('verification_id')->after('verification_code')->default(null);
+            $table->string('register_id')->after('id')->unique()->default(null);
         });
     }
 
@@ -24,7 +24,7 @@ return new class extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->dropColumn('verification_code');
-            $table->dropColumn('verification_id');
+            $table->dropColumn('register_id');
         });
     }
 };

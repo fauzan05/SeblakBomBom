@@ -24,7 +24,7 @@ class User extends Authenticatable
         'email',
         'password',
         'verification_code',
-        'verification_id',
+        'register_id',
         'email_verified_at',
         'updated_at'
     ];
@@ -48,7 +48,7 @@ class User extends Authenticatable
         'password',
         'remember_token',
         'verification_code',
-        'verification_id'
+        'register_id'
     ];
 
     /**
