@@ -117,11 +117,45 @@ class AuthController extends Controller
         }else{
             return abort(404);
         }
+    }
 
-    }
-    public function passwordChanges(Request $request)
+    public function passwordChangesForm()
     {
-        
+        if (!Auth::check()) {
+            return view('product/index');
+        }
+        $data = [
+            'name' => Auth::user()->name
+        ]; 
+        return view('auth/password',$data);
     }
+
+    public function updatePassword(Request $request)
+    {
+        $request->validate([
+            'old_password' => 'required|min:6',
+            'password' => 'required|min:6|confirmed'
+        ]);
+        $user = $request->user(); // Ambil pengguna saat ini
+
+        if(!Hash::check($request->old_password, $user->password)){
+            return Redirect::back()->with('error_message', 'password lama yang anda masukkan salah! mohon coba atau ingat lagi lagi');
+        }
+        if (Hash::needsRehash($user->password)) {
+            $user->update([
+                'password' => Hash::make($request->password),
+                'updated_at' => now()
+            ]);
+        }else{
+            $user->update([
+                'password' => Hash::make($request->password),
+                'updated_at' => now()
+            ]);
+        }
+
+        return redirect('/')->with('message', 'Berhasil mengubah password!');
+    }
+
+
 
 }

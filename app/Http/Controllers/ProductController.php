@@ -19,4 +19,9 @@ class ProductController extends Controller
         ];
         return view('product/index', $data);
     }
+
+    public function seblakMenu()
+    {
+        return view('product/menu');
+    }
 }
